@@ -25,10 +25,14 @@ switch(categorie){
 $(function() {
     $('#pagination-container').pagination({
         dataSource: [...Array(100).keys()],
-        pageSize: 2,
+        pageSize: 3,
         callback: function(data, pagination) {
             var html = simpleTemplating(data);
             $('#data-container').html(html);
+            if(data[0] != 0){
+                $('<a href="#TopProducts"></a>')[0].click();
+            }
+            
         }
     })
 });
@@ -37,7 +41,7 @@ $(function() {
 function simpleTemplating(data) {
     var dataHtml = `
         <div class="product-sec1 px-sm-4 px-3 py-sm-5  py-3 mb-4">
-            <h3 class="heading-tittle text-center font-italic">New Brand Mobiles</h3>
+            <h3 class="heading-tittle text-center font-italic" id="TopProducts">New Brand Mobiles</h3>
     `;
     let i=0, countItem=0;
     dataHtml += `<div class="row">`;
