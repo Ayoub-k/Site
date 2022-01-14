@@ -12,27 +12,74 @@ function GetContact(event){
     $('#BigSlider').html($('#SmallSlider').html());
 }
 
-const categorie = $('#Chargeur').val();
+/*
+<input type="text" value="Chargeur" id="Chargeur" hidden/>
+	<input type="text" value="FILL_LIGHT" id="FILL_LIGHT" hidden/>
+	<input type="text" value="PLAY" id="PLAY" hidden/>
+	<input type="text" value="POWER_BANK" id="POWER_BANK" hidden/>
+	<input type="text" value="SPEAKER" id="SPEAKER" hidden/>
+	<input type="text" value="USB_CABLE" id="USB_CABLE" hidden/>
+	<input type="text" value="SearchProducts" id="SearchProducts" hidden/>
+*/
 
-switch(categorie){
-    case $('#Chargeur').val():
-        break;
+function ChangeCategorie(){
+    let resultats = [];
+
+    switch($('#SearchProducts').val()){
+        case $('#Chargeur').val():
+            resultats = [...Array(101).keys()]
+            break;
+        case $('#FILL_LIGHT').val():
+            resultats = [...Array(8).keys()]
+            break;
+        case $('#PLAY').val():
+            resultats = [...Array(100).keys()]
+            break;
+        case $('#POWER_BANK').val():
+            resultats = [...Array(100).keys()]
+            break;
+        case $('#SPEAKER').val():
+            resultats = [...Array(100).keys()]
+            break;
+        case $('#USB_CABLE').val():
+            resultats = [...Array(100).keys()]
+            break;
+        default:
+            resultats = [...Array(101).keys()]
+            break;
+    }
+    return resultats;
 }
 
 
 
-
-$(function() {
-    $('#pagination-container').pagination({
-        dataSource: [...Array(100).keys()],
-        pageSize: 3,
+function GetCategorie() {
+    $('#SearchProducts').val($('#agileinfo-nav_search').val());
+    $('.pagination-container').pagination({
+        dataSource: ChangeCategorie(),
+        pageSize: 9,
         callback: function(data, pagination) {
+            console.log(data);
             var html = simpleTemplating(data);
             $('#data-container').html(html);
             if(data[0] != 0){
                 $('<a href="#TopProducts"></a>')[0].click();
             }
-            
+        }
+    })
+}
+
+$(function() {
+    $('.pagination-container').pagination({
+        dataSource: ChangeCategorie(),
+        pageSize: 9,
+        callback: function(data, pagination) {
+            console.log(data);
+            var html = simpleTemplating(data);
+            $('#data-container').html(html);
+            if(data[0] != 0){
+                $('<a href="#TopProducts"></a>')[0].click();
+            }
         }
     })
 });
@@ -44,34 +91,16 @@ function simpleTemplating(data) {
             <h3 class="heading-tittle text-center font-italic" id="TopProducts">New Brand Mobiles</h3>
     `;
     let i=0, countItem=0;
+    const folder = $('#SearchProducts').val()== ''? 'Chargeur' : $('#SearchProducts').val();
     dataHtml += `<div class="row">`;
     let element = data[0] == 0 ? 1 : data[0];
     while(i < data.length && countItem < 3){
         let j=0;
         while(j < 3){
-            dataHtml += `
-                <div class="col-md-4 product-men mt-5">
-                    <div class="men-pro-item simpleCart_shelfItem">
-                        <div class="men-thumb-item text-center">
-                            <img src="images/ImagesProducts/Chargeur/${element}.jpg" alt="">
-                            <div class="men-cart-pro">
-                                <div class="inner-men-cart-pro">
-                                    <a href="single.html" class="link-product-add-cart">Quick View</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item-info-product text-center border-top mt-4">
-                            <h4 class="pt-1">
-                                <a href="single.html">Samsung Galaxy J7</a>
-                            </h4>
-                            <div class="info-product-price my-2">
-                                <span class="item_price">$200.00</span>
-                                <del>$280.00</del>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
+            let $htmlProduct = $('#ModelProducts').html();
+            $(".IdImageProduit", $htmlProduct).attr('src', $(".IdImageProduit", $htmlProduct).attr('src') + folder + '/' + element + '.jpg');
+            $htmlProduct = $htmlProduct.replace('"images/ImagesProducts/"', '"images/ImagesProducts/'+ folder + '/' + element + '.jpg' + '"')
+            dataHtml += $htmlProduct;
             j++;
             element++;
         }

@@ -2,11 +2,11 @@
 <html lang="zxx">
 
 <head>
-	<title>Electro Store Ecommerce Category Bootstrap Responsive Web Template | Home :: w3layouts</title>
+	<title>Electro </title>
 	<!-- Meta tag Keywords -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="UTF-8" />
-	<meta name="keywords" content="Electro Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design"
+	<meta name="keywords" content="Electro "
 	/>
 	<script>
 		addEventListener("load", function () {
@@ -61,6 +61,7 @@
 	<input type="text" value="POWER_BANK" id="POWER_BANK" hidden/>
 	<input type="text" value="SPEAKER" id="SPEAKER" hidden/>
 	<input type="text" value="USB_CABLE" id="USB_CABLE" hidden/>
+	<input type="text" value="" id="SearchProducts" hidden/>
 
 	<!-- top-header -->
 	<div class="agile-main-top">
@@ -109,7 +110,6 @@
 							</form>
 						</div>
 						<!-- //search -->
-
 					</div>
 				</div>
 			</div>
@@ -123,17 +123,20 @@
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
 				<div class="agileits-navi_search">
 					<form action="#" method="post">
-						<select id="agileinfo-nav_search" name="agileinfo_search" class="border" required="">
+						<select id="agileinfo-nav_search" name="agileinfo_search" class="border pagination-container" required="" onchange="GetCategorie()">
 							<option value="">All Categories</option>
 							<option value="Televisions">Televisions</option>
+							<option value="POWER_BANK">Power Bank</option>
 							<option value="Headphones">Headphones</option>
-							<option value="Computers">Computers</option>
-							<option value="Appliances">Appliances</option>
-							<option value="Mobiles">Mobiles</option>
+							<option value="Chargeur">Chargeur</option>
+							<option value="FILL_LIGHT">FILL LIGHT</option>
+							<option value="PLAY">Play</option>
 							<option value="Fruits &amp; Vegetables">Tv &amp; Video</option>
 							<option value="iPad & Tablets">iPad & Tablets</option>
 							<option value="Cameras & Camcorders">Cameras & Camcorders</option>
 							<option value="Home Audio & Theater">Home Audio & Theater</option>
+							<option value="SPEAKER">Speaker</option>
+							<option value="USB_CABLE">Usb Cable</option>
 						</select>
 					</form>
 				</div>
@@ -267,7 +270,7 @@
 					</div>
 				</div>
 			</div>
-			<div id="pagination-container"></div>
+			<div id="pagination-container" class="pagination-container"></div>
 				<!-- //product left -->
 
 				<!-- product right -->
@@ -484,7 +487,7 @@
 	<div class="copy-right py-3">
 		<div class="container">
 			<p class="text-center text-white">© 2018 Electro Store. All rights reserved | Design by
-				<a href="http://w3layouts.com"> W3layouts.</a>
+				<!-- <a href="http://w3layouts.com"> W3layouts.</a> -->
 			</p>
 		</div>
 	</div>
@@ -760,13 +763,29 @@
 	<!---728x90--->
 	</div>
 
-	<script type="text/template" id="template-demo">
-		<ul>
-		{{#each data}}
-			<li>{{this}}</li>
-		{{/each}}
-		</ul>
-	</script>
+	<div id="ModelProducts" style="display: none;">
+		<div class="col-md-4 product-men mt-5">
+			<div class="men-pro-item simpleCart_shelfItem">
+				<div class="men-thumb-item text-center">
+					<img src="images/ImagesProducts/" class="IdImageProduit" alt="">
+					<div class="men-cart-pro">
+						<div class="inner-men-cart-pro">
+							<a href="single.html" class="link-product-add-cart">Quick View</a>
+						</div>
+					</div>
+				</div>
+				<div class="item-info-product text-center border-top mt-4">
+					<h4 class="pt-1">
+						<a href="single.html">Samsung Galaxy J7</a>
+					</h4>
+					<div class="info-product-price my-2">
+						<span class="item_price">$200.00</span>
+						<del>$280.00</del>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	</body>
 
