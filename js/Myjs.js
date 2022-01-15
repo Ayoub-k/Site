@@ -49,7 +49,6 @@ function GetCategorie() {
         dataSource: ChangeCategorie(),
         pageSize: 9,
         callback: function(data, pagination) {
-            console.log(data);
             var html = simpleTemplating(data);
             $('.data-container').html(html);
             if(data[0] != 0){
@@ -64,7 +63,6 @@ $(function() {
         dataSource: ChangeCategorie(),
         pageSize: 9,
         callback: function(data, pagination) {
-            console.log(data);
             var html = simpleTemplating(data);
             $('.data-container').html(html);
             if(data[0] != 0){
@@ -81,20 +79,24 @@ function simpleTemplating(data) {
             <h3 class="heading-tittle text-center font-italic" id="TopProducts">New Brand Mobiles</h3>
     `;
     let i=0, countItem=0;
-    const folder = $('#SearchProducts').val()== ''? 'Chargeur' : $('#SearchProducts').val();
+    const folder = $('#SearchProducts').val()== '' ? 'Chargeur' : $('#SearchProducts').val();
     dataHtml += `<div class="row">`;
     let element = data[0] == 0 ? 1 : data[0];
-    while(i < data.length && countItem < 3){
+    let len = data.length
+    let elementTable = 0
+    while(i <= len && countItem < 3 ){
         let j=0;
-        while(j < 3){
+        while(j < 3 && elementTable <= len){
             let $htmlProduct = $('#ModelProducts').html();
             $(".IdImageProduit", $htmlProduct).attr('src', $(".IdImageProduit", $htmlProduct).attr('src') + folder + '/' + element + '.jpg');
             $htmlProduct = $htmlProduct.replace('"images/ImagesProducts/"', '"images/ImagesProducts/'+ folder + '/' + element + '.jpg' + '"')
             dataHtml += $htmlProduct;
             j++;
             element++;
+            elementTable++;
+            i++;
         }
-        i++;
+        
         countItem++;
     }
     dataHtml += `
