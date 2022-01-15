@@ -82,7 +82,7 @@ function simpleTemplating(data) {
     const folder = $('#SearchProducts').val()== '' ? 'Chargeur' : $('#SearchProducts').val();
     dataHtml += `<div class="row">`;
     let element = data[0] == 0 ? 1 : data[0];
-    let len = data.length
+    let len = data.length // 5
     let elementTable = 0
     while(i <= len && countItem < 3 ){
         let j=0;
