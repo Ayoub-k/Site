@@ -17,7 +17,6 @@
 			window.scrollTo(0, 1);
 		}
 	</script>
-	<!-- //Meta tag Keywords -->
 
 	<!-- Custom-Files -->
 	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
@@ -32,24 +31,10 @@
 	<!-- menu style -->
 	<link href="css/Mycss.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="css/pagination.css" rel="stylesheet" type="text/css" media="all" />
-	<!-- <link rel="stylesheet" href="/assests/css/font-awesome.min.css"> -->
-	<!-- //Custom-Files -->
-
-	<!-- web fonts -->
-	<!-- <link href="//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&amp;subset=latin-ext" rel="stylesheet">
-	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese"
-	    rel="stylesheet"> -->
-	<!-- //web fonts -->
 
 </head>
 
 <body>
-<!-- <script src="//m.servedby-buysellads.com/monetization.js" type="text/javascript"></script> -->
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<!-- <script async src='https://www.googletagmanager.com/gtag/js?id=UA-149859901-1'></script>
-
-<script async src='/js/autotrack.js'></script> -->
 
 <meta name="robots" content="noindex">
 <body>
@@ -147,7 +132,7 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-auto text-center mr-xl-5">
 						<li class="nav-item  mr-lg-2 mb-lg-0 mb-2">
-							<a class="nav-link active" href="index.html">Home
+							<a class="nav-link loveit active" href="index.html">Home
 								<span class="sr-only">(current)</span>
 							</a>
 						</li>					
@@ -155,7 +140,7 @@
 							<a class="nav-link  hasActive" href="#" onclick="GetAbout(event)">About Us</a>
 						</li>
 						<li class="nav-item mr-lg-2 mb-lg-0 mb-2">
-							<a class="nav-link hasActive" href="product.html">Products</a>
+							<a class="nav-link hasActive" href="#" id="IdPageProducts_">Products</a>
 						</li>
 
 						<li class="nav-item">
@@ -189,7 +174,7 @@
 									<span>Big</span>
 									Sale
 								</h3>
-								<a class="button2" href="product.html">Shop Now </a>
+								<a class="button2" href="#">Shop Now </a>
 							</div>
 						</div>
 					</div>
@@ -203,7 +188,7 @@
 								<h3 class="font-weight-bold pt-2 pb-lg-5 pb-4">Best
 									<span>Headphone</span>
 								</h3>
-								<a class="button2" href="product.html">Shop Now </a>
+								<a class="button2" href="#">Shop Now </a>
 							</div>
 						</div>
 					</div>
@@ -217,7 +202,7 @@
 								<h3 class="font-weight-bold pt-2 pb-lg-5 pb-4">New
 									<span>Standard</span>
 								</h3>
-								<a class="button2" href="product.html">Shop Now </a>
+								<a class="button2" href="#">Shop Now </a>
 							</div>
 						</div>
 					</div>
@@ -231,7 +216,7 @@
 								<h3 class="font-weight-bold pt-2 pb-lg-5 pb-4">Today
 									<span>Discount</span>
 								</h3>
-								<a class="button2" href="product.html">Shop Now </a>
+								<a class="button2" href="#">Shop Now </a>
 							</div>
 						</div>
 					</div>
@@ -261,15 +246,17 @@
 				<span>P</span>roducts
 			</h3>
 			<!-- //tittle heading -->
-			<div class="row">
-				<!-- product left -->
-				<div class="agileinfo-ads-display col-lg-12">
-					<div class="wrapper" >
-						<div class="data-container"></div>
+			<div id="sectionProducts">
+				<div class="row">
+					<!-- product left -->
+					<div class="agileinfo-ads-display col-lg-12">
+						<div class="wrapper" >
+							<div class="data-container"></div>
+						</div>
 					</div>
 				</div>
+				<div  class="pagination-container"></div>
 			</div>
-			<div  class="pagination-container"></div>
 		</div>
 	</div>
 
@@ -285,7 +272,7 @@
 							<div class="col-sm-7 offer-name">
 								<h6>Smooth, Rich & Loud Audio</h6>
 								<h4 class="mt-2 mb-3">Branded Headphones</h4>
-								<p>Sale up to 25% off all in store</p>
+								<p></p>
 							</div>
 							<div class="col-sm-5 offerimg-w3l">
 								<img src="images/off1.png" alt="" class="img-fluid">
@@ -299,7 +286,8 @@
 							<div class="col-sm-7 offer-name">
 								<h6>A Bigger Phone</h6>
 								<h4 class="mt-2 mb-3">Smart Phones 5</h4>
-								<p>Free shipping order over $100</p>
+								<!-- <p>Free shipping order over $100</p> -->
+								<p></p>
 							</div>
 							<div class="col-sm-5 offerimg-w3l">
 								<img src="images/off2.png" alt="" class="img-fluid">
@@ -331,8 +319,9 @@
 								<i class="fas fa-dolly"></i>
 							</div>
 							<div class="col-8 text-form-footer">
-								<h3>Free Shipping</h3>
-								<p>on orders over $100</p>
+								<h3>Shipping</h3>
+								<!-- <p>on orders over $100</p> -->
+								<p></p>
 							</div>
 						</div>
 					</div>
@@ -371,22 +360,22 @@
 						<h3 class="text-white font-weight-bold mb-3">Categories</h3>
 						<ul>
 							<li class="mb-3">
-								<a href="product.html">Mobiles </a>
+								<a href="#">Mobiles </a>
 							</li>
 							<li class="mb-3">
-								<a href="product.html">Computers</a>
+								<a href="#">Computers</a>
 							</li>
 							<li class="mb-3">
-								<a href="product.html">TV, Audio</a>
+								<a href="#">TV, Audio</a>
 							</li>
 							<li class="mb-3">
-								<a href="product2.html">Smartphones</a>
+								<a href="#">Smartphones</a>
 							</li>
 							<li class="mb-3">
-								<a href="product.html">Washing Machines</a>
+								<a href="#">Washing Machines</a>
 							</li>
 							<li>
-								<a href="product2.html">Refrigerators</a>
+								<a href="#">Refrigerators</a>
 							</li>
 						</ul>
 					</div>
@@ -437,7 +426,7 @@
 					<div class="col-md-3 col-sm-6 footer-grids w3l-agileits mt-md-0 mt-4">
 						<!-- newsletter -->
 						<h3 class="text-white font-weight-bold mb-3">Newsletter</h3>
-						<p class="mb-3">Free Delivery on your first order!</p>
+						<p class="mb-3">Free Delivery on your all order!</p>
 						<form action="#" method="post">
 							<div class="form-group">
 								<input type="email" class="form-control" placeholder="Email" name="email" required="">
@@ -481,11 +470,7 @@
 	<!-- //footer -->
 	<!-- copyright -->
 	<div class="copy-right py-3">
-		<div class="container">
-			<p class="text-center text-white">© 2018 Electro Store. All rights reserved | Design by
-				<!-- <a href="http://w3layouts.com"> W3layouts.</a> -->
-			</p>
-		</div>
+		
 	</div>
 	<!-- //copyright -->
 
@@ -538,14 +523,6 @@
 	<!-- smooth-scrolling-of-move-up -->
 	<script>
 		$(document).ready(function () {
-			/*
-			var defaults = {
-				containerID: 'toTop', // fading element id
-				containerHoverID: 'toTopHover', // fading element hover id
-				scrollSpeed: 1200,
-				easingType: 'linear' 
-			};
-			*/
 			$().UItoTop({
 				easingType: 'easeOutQuart'
 			});
@@ -759,24 +736,27 @@
 	<!---728x90--->
 	</div>
 
-	<div id="ModelProducts" style="display: none;">
+	<div id="ModelShowProduct" style="display: none;">
 		<div class="col-md-4 product-men mt-5">
 			<div class="men-pro-item simpleCart_shelfItem">
 				<div class="men-thumb-item text-center">
 					<img src="images/ImagesProducts/" class="IdImageProduit" alt="">
 					<div class="men-cart-pro">
 						<div class="inner-men-cart-pro">
-							<a href="single.html" class="link-product-add-cart">Quick View</a>
+							<a href="#" class="link-product-add-cart">Quick View</a>
 						</div>
 					</div>
 				</div>
 				<div class="item-info-product text-center border-top mt-4">
 					<h4 class="pt-1">
-						<a href="single.html">Samsung Galaxy J7</a>
+						<!-- <a href="#">Samsung Galaxy J7</a> -->
+						<a href="#"></a>
 					</h4>
 					<div class="info-product-price my-2">
-						<span class="item_price">$200.00</span>
-						<del>$280.00</del>
+						<!-- <span class="item_price">$200.00</span> -->
+						<span class="item_price"></span>
+						<!-- <del>$280.00</del> -->
+						<del></del>
 					</div>
 				</div>
 			</div>

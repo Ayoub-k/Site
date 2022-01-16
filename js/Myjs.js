@@ -15,7 +15,9 @@ function GetContact(event){
 
 function ChangeCategorie(){
     let resultats = [];
-    $('#BigSlider').html($('#SmallSlider').html());
+    if($('#agileinfo-nav_search').val() != ''){
+        $('#BigSlider').html($('#SmallSlider').html());
+    }
     switch($('#SearchProducts').val()){
         case $('#Chargeur').val():
             resultats = [...Array(102).keys()]
@@ -41,10 +43,39 @@ function ChangeCategorie(){
     return resultats;
 }
 
+var ModoleProduit = `
+        <div class="container py-xl-4 py-lg-2">
+			<!-- tittle heading -->
+			<h3 class="tittle-w3l text-center mb-lg-5 mb-sm-4 mb-3">
+				<span>O</span>ur
+				<span>N</span>ew
+				<span>P</span>roducts
+			</h3>
+			<!-- //tittle heading -->
+			<div >
+				<div class="row">
+					<!-- product left -->
+					<div class="agileinfo-ads-display col-lg-12">
+						<div class="wrapper" >
+							<div class="data-container"></div>
+						</div>
+					</div>
+				</div>
+				<div  class="pagination-container"></div>
+			</div>
+		</div>
+    `;
 
 
 function GetCategorie() {
     $('#SearchProducts').val($('#agileinfo-nav_search').val());
+
+    if($("[class*='hasActive']").hasClass('active')){
+        $("[class*='nav-link']").removeClass('active');
+        $('#IdPageProducts_').addClass('active');
+        $('#content__div').html(ModoleProduit);
+    }
+
     $('.pagination-container').pagination({
         dataSource: ChangeCategorie(),
         pageSize: 9,
@@ -86,11 +117,13 @@ function simpleTemplating(data) {
     let elementTable = 0
     while(i <= len && countItem < 3 ){
         let j=0;
-        while(j < 3 && elementTable <= len){
-            let $htmlProduct = $('#ModelProducts').html();
-            $(".IdImageProduit", $htmlProduct).attr('src', $(".IdImageProduit", $htmlProduct).attr('src') + folder + '/' + element + '.jpg');
+        while(j < 3 && i <= len){
+            let $htmlProduct = $('#ModelShowProduct').html();
             $htmlProduct = $htmlProduct.replace('"images/ImagesProducts/"', '"images/ImagesProducts/'+ folder + '/' + element + '.jpg' + '"')
-            dataHtml += $htmlProduct;
+            if(elementTable <= len){
+                dataHtml += $htmlProduct;
+            }
+            
             j++;
             element++;
             elementTable++;
@@ -106,3 +139,6 @@ function simpleTemplating(data) {
     `;
     return dataHtml;
 }
+
+
+
