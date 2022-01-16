@@ -1,4 +1,5 @@
 function GetAbout(event){
+    $('#agileinfo-nav_search').val('');
     $("[class*='nav-link']").removeClass('active');
     $(event.target).addClass('active');
     $('#content__div').html($('#about__code').html());
@@ -6,12 +7,12 @@ function GetAbout(event){
 }
 
 function GetContact(event){
+    $('#agileinfo-nav_search').val('');
     $("[class*='nav-link']").removeClass('active');
     $(event.target).addClass('active');
     $('#content__div').html($('#contact__code').html());
     $('#BigSlider').html($('#SmallSlider').html());
 }
-
 
 function ChangeCategorie(){
     let resultats = [];
@@ -112,7 +113,6 @@ function simpleTemplating(data) {
     let i=0, countItem=0;
     const folder = $('#SearchProducts').val()== '' ? 'Chargeur' : $('#SearchProducts').val();
     dataHtml += `<div class="row">`;
-    //let element = data[0] == 0 ? 1 : data[0];
     let element =  data[0];
     let len = data.length // 5
     while(i <= len && countItem < 3 && ChangeCategorie().length !== 0){
@@ -123,12 +123,10 @@ function simpleTemplating(data) {
             if(ChangeCategorie().length >= element ){
                 dataHtml += $htmlProduct;
             }
-            console.log("len table data: "+ChangeCategorie().length+ " element in table: "+ element+ " test :" + ChangeCategorie().length >= element);
             j++;
             element++;
             i++;
         }
-        
         countItem++;
     }
     dataHtml += `
