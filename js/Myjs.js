@@ -38,32 +38,54 @@ function ChangeCategorie(){
         case $('#USB_CABLE').val():
             resultats = Array.from({length: 63}, (_, i) => i + 1)
             break;
+        case $('#Aux_Cable').val():
+            resultats = Array.from({length: 10}, (_, i) => i + 1)
+            break;
+        case $('#Battery').val(): 
+            resultats = Array.from({length: 26}, (_, i) => i + 1)
+            break;
+        case $('#Card_Reader').val(): 
+            resultats = Array.from({length: 5}, (_, i) => i + 1)
+            break;
+        case $('#Card_Mp3').val(): 
+            resultats = Array.from({length: 8}, (_, i) => i + 1)
+            break;
+        case $('#Ecouteur').val(): //
+            resultats = Array.from({length: 84}, (_, i) => i + 1)
+            break;
+        case $('#Holder').val():
+            resultats = Array.from({length: 31}, (_, i) => i + 1)
+            break;
+        case $('#LCD').val():
+            resultats = Array.from({length: 1}, (_, i) => i + 1)
+            break;
+        case $('#Touch').val():
+            resultats = Array.from({length: 3}, (_, i) => i + 1)
+            break;
         default:
             break;
     }
+    console.log(resultats);
     return resultats;
 }
 
+
 var ModoleProduit = `
         <div class="container py-xl-4 py-lg-2">
-			<!-- tittle heading -->
 			<h3 class="tittle-w3l text-center mb-lg-5 mb-sm-4 mb-3">
 				<span>O</span>ur
 				<span>N</span>ew
 				<span>P</span>roducts
 			</h3>
-			<!-- //tittle heading -->
-			<div >
-				<div class="row">
-					<!-- product left -->
-					<div class="agileinfo-ads-display col-lg-12">
-						<div class="wrapper" >
-							<div class="data-container"></div>
-						</div>
-					</div>
-				</div>
-				<div  class="pagination-container"></div>
-			</div>
+            <div class="row">
+                <!-- product left -->
+                <div class="agileinfo-ads-display col-lg-12">
+                    <div class="wrapper" >
+                        <div class="data-container"></div>
+                    </div>
+                </div>
+            </div>
+            <div  class="pagination-container"></div>
 		</div>
     `;
 
@@ -104,14 +126,13 @@ $(function() {
     })
 });
 
-
 function simpleTemplating(data) {
     var dataHtml = `
         <div class="product-sec1 px-sm-4 px-3 py-sm-5  py-3 mb-4">
             <h3 class="heading-tittle text-center font-italic" id="TopProducts">New Brand ${$('#agileinfo-nav_search').val()}</h3>
     `;
     let i=0, countItem=0;
-    const folder = $('#SearchProducts').val()== '' ? 'Chargeur' : $('#SearchProducts').val();
+    const folder = $('#SearchProducts').val() == '' ? 'Chargeur' : $('#SearchProducts').val();
     dataHtml += `<div class="row">`;
     let element =  data[0];
     let len = data.length // 5
