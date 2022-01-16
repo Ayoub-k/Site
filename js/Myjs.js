@@ -20,22 +20,22 @@ function ChangeCategorie(){
     }
     switch($('#SearchProducts').val()){
         case $('#Chargeur').val():
-            resultats = [...Array(102).keys()]
+            resultats = Array.from({length: 102}, (_, i) => i + 1)
             break;
         case $('#FILL_LIGHT').val():
-            resultats = [...Array(8).keys()]
+            resultats = Array.from({length: 9}, (_, i) => i + 1)
             break;
         case $('#PLAY').val():
-            resultats = [...Array(6).keys()]
+            resultats = Array.from({length: 6}, (_, i) => i + 1)
             break;
         case $('#POWER_BANK').val():
-            resultats = [...Array(12).keys()]
+            resultats = Array.from({length: 12}, (_, i) => i + 1)
             break;
         case $('#SPEAKER').val():
-            resultats = [...Array(15).keys()]
+            resultats = Array.from({length: 15}, (_, i) => i + 1)
             break;
         case $('#USB_CABLE').val():
-            resultats = [...Array(63).keys()]
+            resultats = Array.from({length: 63}, (_, i) => i + 1)
             break;
         default:
             break;
@@ -107,26 +107,25 @@ $(function() {
 function simpleTemplating(data) {
     var dataHtml = `
         <div class="product-sec1 px-sm-4 px-3 py-sm-5  py-3 mb-4">
-            <h3 class="heading-tittle text-center font-italic" id="TopProducts">New Brand Mobiles</h3>
+            <h3 class="heading-tittle text-center font-italic" id="TopProducts">New Brand ${$('#agileinfo-nav_search').val()}</h3>
     `;
     let i=0, countItem=0;
     const folder = $('#SearchProducts').val()== '' ? 'Chargeur' : $('#SearchProducts').val();
     dataHtml += `<div class="row">`;
-    let element = data[0] == 0 ? 1 : data[0];
+    //let element = data[0] == 0 ? 1 : data[0];
+    let element =  data[0];
     let len = data.length // 5
-    let elementTable = 0
-    while(i <= len && countItem < 3 ){
+    while(i <= len && countItem < 3 && ChangeCategorie().length !== 0){
         let j=0;
         while(j < 3 && i <= len){
             let $htmlProduct = $('#ModelShowProduct').html();
             $htmlProduct = $htmlProduct.replace('"images/ImagesProducts/"', '"images/ImagesProducts/'+ folder + '/' + element + '.jpg' + '"')
-            if(elementTable <= len){
+            if(ChangeCategorie().length >= element ){
                 dataHtml += $htmlProduct;
             }
-            
+            console.log("len table data: "+ChangeCategorie().length+ " element in table: "+ element+ " test :" + ChangeCategorie().length >= element);
             j++;
             element++;
-            elementTable++;
             i++;
         }
         
